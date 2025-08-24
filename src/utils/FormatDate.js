@@ -1,3 +1,4 @@
+//get the fomate date
 const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString("en-AU", {
     year: "numeric",

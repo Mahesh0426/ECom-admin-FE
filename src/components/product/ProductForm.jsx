@@ -78,6 +78,7 @@ const ProductForm = ({ initialFormData }) => {
 
       if (response.status === "success") {
         const uploaded = response.payload;
+
         let thumbnailUrl = "";
 
         if (Array.isArray(uploaded)) {
@@ -110,7 +111,7 @@ const ProductForm = ({ initialFormData }) => {
   const handleSubmitProduct = (e) => {
     e.preventDefault();
 
-    //validation
+    // validation
     if (
       !formData.title ||
       !formData.categoryId ||
@@ -120,7 +121,7 @@ const ProductForm = ({ initialFormData }) => {
       !formData.status ||
       !formData.thumbnail
     ) {
-      toast(" All  fields required ");
+      toast("All fields required");
       return;
     }
 
@@ -136,6 +137,7 @@ const ProductForm = ({ initialFormData }) => {
     try {
       startLoading();
 
+      // Build product payload
       const productData = {
         ...formData,
         tags: (formData?.tags || "")
@@ -152,16 +154,21 @@ const ProductForm = ({ initialFormData }) => {
           .filter((c) => c),
       };
 
+      if (!productData.thumbnail && thumbnailFile) {
+        toast.error("Please upload the thumbnail first.");
+        stopLoading();
+        return;
+      }
+
+      console.log("Final productData before submit:", productData);
+
       // Check if we're editing or creating based on formData._id
       if (formData._id) {
-        // Update existing product
         dispatch(updateProductAction(formData._id, productData));
       } else {
-        // Create new product
         dispatch(addProductAction(productData));
       }
 
-      // Navigate back to products list on success
       navigate("/admin/products");
     } catch (err) {
       console.error("Failed to save product", err);

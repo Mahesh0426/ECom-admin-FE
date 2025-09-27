@@ -1,6 +1,14 @@
 # E-commerce Admin Frontend
 
-A modern, responsive admin dashboard for managing e-commerce operations built with React and Vite.
+this is a e-commerce admin frontend group project
+
+## backend repo
+
+https://github.com/Mahesh0426/Ecom-admin-BE
+
+## 📝 Description
+
+The admin panel of this e-commerce application is designed for efficient store management and smooth operations. It includes full CRUD functionality for products and categories, along with review approval workflows to maintain product quality and credibility. Admins can create and manage discount codes through a dedicated coupon management system and oversee orders with status updates, internal notes, and automated email notifications. Role-based access control ensures secure administration, including the ability to assign roles to other admins. The dashboard provides a streamlined view of products, orders, and users, while an integrated AI tool assists in generating SEO-friendly product descriptions to boost visibility and sales.
 
 ## 🚀 Features
 

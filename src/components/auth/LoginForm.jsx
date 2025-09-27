@@ -161,6 +161,13 @@ const LoginForm = () => {
             </Button>
           </div>
         </form>
+        <p>
+          Credentials:
+          <br />
+          Email:physmarika@gmail.com
+          <br />
+          Password: Gaighat123@
+        </p>
 
         {/* Forgot password */}
         <p className="mt-8 text-center text-sm text-gray-500">
